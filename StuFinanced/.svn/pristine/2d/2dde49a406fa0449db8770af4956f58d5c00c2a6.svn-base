@@ -1,0 +1,195 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Common
+{
+    public class JsonHelper
+    {
+        #region dataTable转换成Json格式  分页
+        /// <summary>     
+        /// dataTable转换成Json格式  分页
+        /// </summary>     
+        /// <param name="dt"></param>     
+        /// <returns></returns>     
+        public static string ToJson(DataSet ds)
+        {
+            StringBuilder jsonBuilder = new StringBuilder();
+            jsonBuilder.Append("{\"total\":" + ds.Tables[1].Rows[0][0].ToString());
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                jsonBuilder.Append(",\"rows\":[");
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    jsonBuilder.Append("{");
+                    for (int j = 0; j < dt.Columns.Count; j++)
+                    {
+                        //判断数据类型，如果是日期类型将数据转换成短日期的
+                        if (dt.Rows[i][j].GetType() == typeof(DateTime))
+                        {
+                            string rowDate = Convert.ToDateTime(dt.Rows[i][j]).ToString("yyyy-MM-dd HH:mm:ss");
+                            jsonBuilder.Append("\"");
+                            jsonBuilder.Append(dt.Columns[j].ColumnName);
+                            jsonBuilder.Append("\":\"");
+                            jsonBuilder.Append(rowDate);
+                            jsonBuilder.Append("\",");
+                        }
+                        else
+                        {
+                            jsonBuilder.Append("\"");
+                            jsonBuilder.Append(dt.Columns[j].ColumnName);
+                            jsonBuilder.Append("\":\"");
+                            jsonBuilder.Append(dt.Rows[i][j].ToString().Replace("\\", "\\\\").Replace("\'", "\\\'").Replace("\t", " ").Replace("\r", " ").Replace("\n", "<br/>").Replace("\"", "'"));
+                            jsonBuilder.Append("\",");
+                        }
+                    }
+                    jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
+                    jsonBuilder.Append("},");
+                }
+                jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
+                jsonBuilder.Append("]");
+            }
+            else { jsonBuilder.Append(",\"rows\":\"\""); }
+            jsonBuilder.Append("}");
+            return jsonBuilder.ToString();
+        }
+        public static string ToJson(DataSet ds, int Total)
+        {
+            StringBuilder jsonBuilder = new StringBuilder();
+            jsonBuilder.Append("{\"total\":" + Total);
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                jsonBuilder.Append(",\"rows\":[");
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    jsonBuilder.Append("{");
+                    for (int j = 0; j < dt.Columns.Count; j++)
+                    {
+                        //判断数据类型，如果是日期类型将数据转换成短日期的
+                        if (dt.Rows[i][j].GetType() == typeof(DateTime))
+                        {
+                            string rowDate = Convert.ToDateTime(dt.Rows[i][j]).ToString("yyyy-MM-dd HH:mm:ss");
+                            jsonBuilder.Append("\"");
+                            jsonBuilder.Append(dt.Columns[j].ColumnName);
+                            jsonBuilder.Append("\":\"");
+                            jsonBuilder.Append(rowDate);
+                            jsonBuilder.Append("\",");
+                        }
+                        else
+                        {
+                            jsonBuilder.Append("\"");
+                            jsonBuilder.Append(dt.Columns[j].ColumnName);
+                            jsonBuilder.Append("\":\"");
+                            jsonBuilder.Append(dt.Rows[i][j].ToString().Replace("\\", "\\\\").Replace("\'", "\\\'").Replace("\t", " ").Replace("\r", " ").Replace("\n", "<br/>").Replace("\"", "'"));
+                            jsonBuilder.Append("\",");
+                        }
+                    }
+                    jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
+                    jsonBuilder.Append("},");
+                }
+                jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
+                jsonBuilder.Append("]");
+            }
+            else { jsonBuilder.Append(",\"rows\":\"\""); }
+            jsonBuilder.Append("}");
+            return jsonBuilder.ToString();
+        }
+        #endregion
+
+        #region DataTable转换成Json格式
+        /// <summary>
+        /// DataTable转换成Json格式
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public static string ToJson(DataTable dt)
+        {
+            StringBuilder jsonBuilder = new StringBuilder();
+            //jsonBuilder.Append("{");
+            jsonBuilder.Append("[");
+            if (dt != null && dt.Rows.Count > 0)
+            {
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    jsonBuilder.Append("{");
+                    for (int j = 0; j < dt.Columns.Count; j++)
+                    {
+                        //判断数据类型，如果是日期类型将数据转换成短日期的
+                        if (dt.Rows[i][j].GetType() == typeof(DateTime))
+                        {
+                            string rowDate = Convert.ToDateTime(dt.Rows[i][j]).ToString("yyyy-MM-dd HH:mm:ss");
+                            jsonBuilder.Append("\"");
+                            jsonBuilder.Append(dt.Columns[j].ColumnName);
+                            jsonBuilder.Append("\":\"");
+                            jsonBuilder.Append(rowDate);
+                            jsonBuilder.Append("\",");
+                        }
+                        else
+                        {
+                            jsonBuilder.Append("\"");
+                            jsonBuilder.Append(dt.Columns[j].ColumnName);
+                            jsonBuilder.Append("\":\"");
+                            jsonBuilder.Append(dt.Rows[i][j].ToString().Replace("\\", "\\\\").Replace("\'", "\\\'").Replace("\t", " ").Replace("\r", " ").Replace("\n", "<br/>").Replace("\"", "'"));
+                            jsonBuilder.Append("\",");
+                        }
+                    }
+                    jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
+                    jsonBuilder.Append("},");
+                }
+                jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
+
+            }
+            jsonBuilder.Append("]");
+            return jsonBuilder.ToString();
+        }
+        #endregion
+
+        public static string TodsJson(DataSet ds)
+        {
+            StringBuilder jsonBuilder = new StringBuilder();
+            jsonBuilder.Append("[");
+            foreach (DataTable dt in ds.Tables)
+            {
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        jsonBuilder.Append("{");
+                        for (int j = 0; j < dt.Columns.Count; j++)
+                        {
+                            //判断数据类型，如果是日期类型将数据转换成短日期的
+                            if (dt.Rows[i][j].GetType() == typeof(DateTime))
+                            {
+                                string rowDate = Convert.ToDateTime(dt.Rows[i][j]).ToString("yyyy-MM-dd HH:mm:ss");
+                                jsonBuilder.Append("\"");
+                                jsonBuilder.Append(dt.Columns[j].ColumnName);
+                                jsonBuilder.Append("\":\"");
+                                jsonBuilder.Append(rowDate);
+                                jsonBuilder.Append("\",");
+                            }
+                            else
+                            {
+                                jsonBuilder.Append("\"");
+                                jsonBuilder.Append(dt.Columns[j].ColumnName);
+                                jsonBuilder.Append("\":\"");
+                                jsonBuilder.Append(dt.Rows[i][j].ToString().Replace("\\", "\\\\").Replace("\'", "\\\'").Replace("\t", " ").Replace("\r", " ").Replace("\n", "<br/>").Replace("\"", "'"));
+                                jsonBuilder.Append("\",");
+                            }
+                        }
+                        jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
+                        jsonBuilder.Append("},");
+                    }
+                }
+            }
+            jsonBuilder.Remove(jsonBuilder.Length - 1, 1);
+            jsonBuilder.Append("]");
+            return jsonBuilder.ToString();
+        }
+    }
+}

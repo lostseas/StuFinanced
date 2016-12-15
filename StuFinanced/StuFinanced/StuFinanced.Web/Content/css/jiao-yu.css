@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+* { margin:0 auto; padding:0px; }
+.body{ background-color:#eee9f0;}
+ li{ list-style:none;}
+ .header{ width:960px; height:160px; background:url(../images/bg_color.png)}
+ .logo{ margin-left:34px; margin-top:22px; background:url(../images/logo.png); width:122px; height:122px; float:left; }
+ .z1{ margin-left:12px; margin-top:38px; background:url(../images/zzqgyxy.png); width:272px; height:82px; float:left;}
+ .z2{ margin-left:70px; margin-top:68px; background:url(../images/z.png); width:422px; height:53px; float:left;}
+ .nav{ width:960px; height:38px; background-color:#6fb619; border-radius:4px;}
+ .nav li{ float:left; padding-left:72px;}
+ .nav a{ text-decoration:none; color:#FFF; font-family:"微软雅黑"; font-size:14px; font-weight:bold; height:38px; line-height:38px;}
+ .nav a:hover{ color:#360;}
+ .flash{ padding-left:10px; margin-top:8px; width:960px; height:254px; }
+ /*开始添加CSS*/
+ .center{ width:950px;  margin-top:20px;}
+ .gonggao{ width:200px; height:400px; float:left; border-radius:6px; background:#ccc;}
+ .tongzhi{ width:720px; height:720px; margin-left:230px; border-radius:16px; background:#FFF; position:relative; }
+ .title{ width:200px; height:30px; margin-top:20px; line-height:30px; text-align:center;}
+ .title1{ width:160px; height:240px; margin-top:18px; text-align:center;}
+ .title1 li{ height:30px; }
+ .title1 a{ font-size:16px; font-weight:bold; color:#000; text-decoration:none;}
+ .title1 a:hover{ color:#F00; }
+ .shou{ width:700px; height:44px; line-height:44px;margin-top:20px; margin-left:20px;}
+ .shou h{ fon-size:14px; font-weight:bold; font-family:"微软雅黑"; }
+ .shou a{ fon-size:14px; color:#390; text-decoration:none; }
+ .shou a:hover{ color:#F00; }
+ .xinxi{ width:690px; height:600px; margin-left:20px; position:relative;}
+ .xinxi li{ width:690px; height:36px; line-height:36px; border-bottom:#000 dashed 1px;}
+ .xinxi a{ color:#000; font-size:14px; font-weight:400; text-decoration:none; }
+ .xinxi span{ position:absolute; right:20px;}
+ .weibu{ width:700px; height:60px; position:relative;}
+ .yema{ position:absolute; bottom:30px; right:20px; }
+ .yema a{ font-size:14px; font-weight:600; font-family:"微软雅黑"; color:#390; text-decoration:none; }
+ .yema a:hover{ color:#F00;}
+ /*结束添加CSS*/
+ .bottom{ width:960px; height:38px; margin-top:20px; background-color:#6fb619; border-radius:4px;}
+ .bottom a{ height:38px; line-height:38px; padding-left:330px;}

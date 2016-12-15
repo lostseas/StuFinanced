@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using System.Reflection;
+
+namespace StuFinanced.Common.ComFunction
+{
+    public class DataHelper
+    {
+        /// <summary>
+        /// DataTable转换实体类
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public static List<T> TableToEntity<T>(DataTable dt) where T : class,new()
+        {
+            Type type = typeof(T);
+            List<T> list = new List<T>();
+            if (dt == null) return list;
+            foreach (DataRow row in dt.Rows)
+            {
+                PropertyInfo[] pArray = type.GetProperties();
+                T entity = new T();
+                foreach (PropertyInfo p in pArray)
+                {
+                    if (row.Table.Columns[p.Name] != null)
+                    {
+                        if (row[p.Name] != DBNull.Value)
+                        {
+                            if (row[p.Name] is Int32)
+                            {
+                                p.SetValue(entity, Convert.ToInt32(row[p.Name]), null);
+                                continue;
+                            }
+                            if (row[p.Name] is Int64)
+                            {
+                                p.SetValue(entity, Convert.ToInt32(row[p.Name]), null);
+                                continue;
+                            }
+                            p.SetValue(entity, row[p.Name], null);
+                        }
+
+                    }
+                }
+                list.Add(entity);
+            }
+            return list;
+        }
+    }
+}

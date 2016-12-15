@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StuFinanced.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SF_AD">
+    <Key>
+      <PropertyRef Name="AD_GUID" />
+    </Key>
+    <Property Name="AD_GUID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AD_Title" Type="varchar" MaxLength="50" />
+    <Property Name="AD_ImgUrl" Type="varchar" MaxLength="128" />
+    <Property Name="AD_SeatCode" Type="varchar" MaxLength="32" />
+    <Property Name="AD_Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="SF_Admin">
+    <Key>
+      <PropertyRef Name="A_GUID" />
+    </Key>
+    <Property Name="A_GUID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="A_NickName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="A_LoginPwd" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="A_RealName" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="A_Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SF_Download">
+    <Key>
+      <PropertyRef Name="D_GUID" />
+    </Key>
+    <Property Name="D_GUID" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="D_AdminGUID" Type="varchar" MaxLength="50" />
+    <Property Name="D_Name" Type="varchar" MaxLength="50" />
+    <Property Name="D_Url" Type="varchar" MaxLength="128" />
+    <Property Name="D_Describe" Type="varchar" MaxLength="200" />
+    <Property Name="D_Category" Type="int" />
+    <Property Name="D_Status" Type="bit" />
+    <Property Name="D_Time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SF_Notice">
+    <Key>
+      <PropertyRef Name="N_GUID" />
+    </Key>
+    <Property Name="N_GUID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="N_AdminGUID" Type="varchar" MaxLength="50" />
+    <Property Name="N_Category" Type="int" />
+    <Property Name="N_Title" Type="varchar" MaxLength="50" />
+    <Property Name="N_Describe" Type="varchar(max)" />
+    <Property Name="N_Status" Type="int" />
+    <Property Name="N_LastTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SF_NoticeCategory">
+    <Key>
+      <PropertyRef Name="NC_ID" />
+    </Key>
+    <Property Name="NC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NC_Name" Type="varchar" MaxLength="32" />
+    <Property Name="NC_ParentID" Type="int" />
+    <Property Name="NC_Level" Type="int" />
+  </EntityType>
+  <EntityType Name="SF_WB_LoginLog">
+    <Key>
+      <PropertyRef Name="LL_GUID" />
+    </Key>
+    <Property Name="LL_GUID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LL_Admin_GUID" Type="varchar" MaxLength="50" />
+    <Property Name="LL_Describe" Type="varchar" MaxLength="200" />
+    <Property Name="LL_Time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SF_WB_OperateLog">
+    <Key>
+      <PropertyRef Name="OL_GUID" />
+    </Key>
+    <Property Name="OL_GUID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OL_Admin_GUID" Type="varchar" MaxLength="50" />
+    <Property Name="OL_Describe" Type="varchar" MaxLength="200" />
+    <Property Name="OL_Time" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="StuFinancedModelStoreContainer">
+    <EntitySet Name="SF_AD" EntityType="Self.SF_AD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SF_Admin" EntityType="Self.SF_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SF_Download" EntityType="Self.SF_Download" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SF_Notice" EntityType="Self.SF_Notice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SF_NoticeCategory" EntityType="Self.SF_NoticeCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SF_WB_LoginLog" EntityType="Self.SF_WB_LoginLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SF_WB_OperateLog" EntityType="Self.SF_WB_OperateLog" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

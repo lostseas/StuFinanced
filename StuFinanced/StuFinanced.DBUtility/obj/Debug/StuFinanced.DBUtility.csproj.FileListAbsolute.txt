@@ -1,0 +1,5 @@
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DBUtility\bin\Debug\StuFinanced.DBUtility.dll
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DBUtility\bin\Debug\StuFinanced.DBUtility.pdb
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DBUtility\obj\Debug\StuFinanced.DBUtility.dll
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DBUtility\obj\Debug\StuFinanced.DBUtility.pdb
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DBUtility\obj\Debug\StuFinanced.DBUtility.csprojResolveAssemblyReference.cache

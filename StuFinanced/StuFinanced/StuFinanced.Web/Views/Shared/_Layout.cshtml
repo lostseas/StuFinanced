@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>大学生资助管理中心</title>
+    
+    <script src="~/Content/html/Scripts/swfobject_modified.js"></script>
+</head>
+<body class="body">
+    <!--头部-header-start-->
+    <div class="header">
+        <div class="logo"></div>
+        <div class="z1"></div>
+        <div class="z2"></div>
+    </div>
+    <div class="nav">
+        <ul>
+            <li class="normal"><a href="/Home/Index">首页</a></li>
+            <li class="normal"><a href="jian-jie.html">中心简介</a></li>
+            <li class="normal"><a href="zhu-yao.html">主要职能</a></li>
+            <li class="normal"><a href="xin-xi.html">信息快递</a></li>
+            <li class="normal"><a href="gonggao.html">公告通知</a></li>
+            <li class="normal"><a href="gongshi.html">网上公示</a></li>
+            <li class="normal"><a href="/Home/Download">下载中心</a></li>
+        </ul>
+    </div>
+
+    <div class="flash">
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="949" height="254" id="FlashID">
+            <param name="movie" value="~/Content/flash/flash.swf" />
+            <param name="quality" value="high" />
+            <param name="wmode" value="opaque" />
+            <param name="swfversion" value="8.0.35.0" />
+            <param name="expressinstall" value="~/Content/html/Scripts/expressInstall.swf" />
+            <object type="application/x-shockwave-flash" data="~/Content/flash/flash.swf" width="949" height="254">
+                <param name="quality" value="high" />
+                <param name="wmode" value="opaque" />
+                <param name="swfversion" value="8.0.35.0" />
+                <param name="expressinstall" value="~/Content/html/Scripts/expressInstall.swf" />
+                <div>
+                    <h4>此页面上的内容需要较新版本的 Adobe Flash Player。</h4>
+                    <p>
+                        <a href="http://www.adobe.com/go/getflashplayer">
+                            <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获取 Adobe Flash Player" width="112" height="33" /></a>
+                    </p>
+                </div>
+            </object>
+        </object>
+    </div>
+    <!--头部-header-end-->
+    @RenderBody()
+    <!--底部-footer-start-->
+     <div class="bottom"><a>版权所有：郑州轻工业学院 学生资助管理中心</a></div>
+    <script type="text/javascript">
+        swfobject.registerObject("FlashID");
+    </script>
+    <!--底部-footer-end-->
+</body>
+</html>
+
+

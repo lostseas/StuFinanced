@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+
+* { margin:0 auto; padding:0px; }
+.body{ background-color:#eee9f0;}
+ li{ list-style:none;}
+ a{ text-decoration:none;}
+ .header{ width:960px; height:160px; background:url(../images/bg_color.png)}
+ .logo{ margin-left:34px; margin-top:22px; background:url(../images/logo.png); width:122px; height:122px; float:left; }
+ .z1{ margin-left:12px; margin-top:38px; background:url(../images/zzqgyxy.png); width:272px; height:82px; float:left;}
+ .z2{ margin-left:40px; margin-top:68px; background:url(../images/z.png); width:422px; height:53px; float:left;}
+ .nav{ width:960px; height:38px; background-color:#6fb619; border-radius:4px;}
+ .nav li{ float:left; padding-left:72px;}
+ .nav a{ text-decoration:none; color:#FFF; font-family:"微软雅黑"; font-size:14px; font-weight:600; height:38px; line-height:38px;}
+ .nav a:hover{ color:#360;}
+ .flash{ padding-left:10px; margin-top:8px; width:960px; height:254px; }
+ /*开始添加CSS*/
+ .news{ width:960px; height:262px; margin-top:8px; }
+ .pic{ background:url(../images/%E5%A4%A7%E6%A0%91.jpg); width:394px; height:262px;  margin-left:5px; float:left;}
+ .wz_title{ margin-left:407px; height:262px; width:546px; border:#c4c4b8 solid 1px; }
+ .a1{  margin-top:4px;  margin-left:36px; float:left; height:18px; }
+ .a2{  margin-top:4px;  margin-left:12px; float:left; height:18px; }
+ .a1 a{ color:#3e7e2d; size:14px; font-family:"微软雅黑"; font-weight:500; }
+ .a2 a{ color:#3e7e2d; size:14px; font-family:"微软雅黑"; font-weight:500; }
+ .btn{ background:url(../images/btn.png) no-repeat; width:60px;height:18px; margin-top:4px; margin-right:16px; text-align:center;}
+ .btn a{ color:#3e7e2d; height:18px; line-height:18px; font-family:"微软雅黑"; font-weight:500;  }
+ .wenzi{ height:228px; width:530px; margin-top:6px;  background-color:#FFF;}
+ .wenzi1{ width:490px; height:210px; padding-top:10px; margin-left:23px;}
+ .wenzi1 a{ font-size:14px; color:#000;  height:26px; line-height:26px; }
+ .center{ width:950px; height:457px; margin-top:10px; background:url(../images/bg-1.png) no-repeat;}
+ .item1{ width:300px; height:457px;  margin-left:5px; float:left;}
+ .item2{ width:300px; height:457px; margin-left:20px;  float:left;}
+ .title{  width:300px; height:24px; margin-top:18px; border-bottom:#6fb619 solid 2px; position:relative;}
+ .title h{ color:#3e7e2d; size:14px; font-family:"微软雅黑"; padding-left:24px; padding-top:10px;}
+ .gd{ width:80px; height:20px; position:absolute; left:200px; top:0px; }
+ .gd a{ color:#3e7e2d; size:14px; font-family:"微软雅黑"; padding-left:24px;}
+ .gd a:hover{ color:#0F0}
+ .xinxi{ width:290px; height:400px; margin-top:20px; }
+ .xinxi li{ border-bottom:#000 dashed 1px;}
+ .xinxi a{  color:#000; font-size:12px; font-family:"微软雅黑";height:24px; line-height:24px;}
+ .center1{ width:950px; height:318px; }
+ .item3{ width:303px; height:287px;  float:left;}
+ .item4{ width:303px; height:287px; margin-left:20px;  float:left;}
+ .title1{  width:300px; height:30px; margin-top:18px; background:#6fb619; position:relative;}
+ .title1 h{ color:#FFF; size:14px; font-family:"微软雅黑"; padding-left:24px; height:30px; line-height:30px;}
+ .gd1{ width:80px; height:20px; position:absolute; left:200px; top:5px; }
+ .gd1 a{ color:#FFF; size:14px; font-family:"微软雅黑"; padding-left:24px;}
+ .gd1 a:hover{ color:#F00;}
+ .news1{ width:302px; height:258px; background:
+ #FFF; position:relative;}
+ .news2{ width:284px; height:238px; left:8px; top:10px; position:absolute;}
+ .news2 a{ color:#000; font-size:12px; }
+ .news2 li{ width:286px; height:24px;  line-height:24px; border-bottom:#000 dashed 1px; }
+ .login{ width:224px; height:190px; top:20px; position:relative; }
+ .password{ width:90px; height:24px; background:#e0e5e3; border-radius:16px; position:absolute; bottom:3px; right:15px;}
+ .password a{ color:#3C0; height:24px; line-height:24px; font-weight:600; padding-left:5px;}
+ .login1{width:60px; height:24px; background:#3C0; border-radius:16px; position:absolute; bottom:3px; left:25px; }
+ .login1 a{ color:#FFF; height:24px; line-height:24px; font-weight:600; padding-left:15px; }
+ .a{ position:absolute; left: 80px;
+	width: 120px;
+	line-height: 24px;
+}
+ /*结束添加CSS*/
+ .bottom{ width:960px; height:38px; background-color:#6fb619; border-radius:4px;}
+ .bottom a{ height:38px; line-height:38px; padding-left:310px;}

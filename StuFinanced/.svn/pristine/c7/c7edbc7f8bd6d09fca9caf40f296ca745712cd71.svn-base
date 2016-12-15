@@ -1,0 +1,181 @@
+﻿using StuFinanced.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data.Entity;
+using System.Linq.Expressions;
+using System.Data.Entity.Infrastructure;
+using System.Reflection;
+
+namespace StuFinanced.DAL
+{
+    public class BaseDAL<T> where T : class ,new()
+    {
+        /// <summary>
+        /// 数据上下文对象
+        /// </summary>
+        StuFinancedContext context = new StuFinancedContext();
+
+        #region 1.0 添加实体
+        /// <summary>
+        /// 添加实体
+        /// </summary>
+        /// <param name="model">实体</param>
+        /// <returns></returns>
+        public int Add(T model)
+        {
+            try
+            {
+                context.Set<T>().Add(model);
+                return context.SaveChanges();
+            }
+            catch (Exception)
+            {
+            }
+            return -1;
+        }
+        #endregion
+
+        #region 2.0 删除实体
+        /// <summary>
+        /// 删除实体
+        /// </summary>
+        /// <param name="model">删除对象</param>
+        /// <returns></returns>
+        public int Del(T model)
+        {
+            try
+            {
+                context.Set<T>().Attach(model);
+                context.Set<T>().Remove(model);
+                return context.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+            }
+            return -1;
+        }
+        #endregion
+
+        #region 2.1 根据条件删除
+        /// <summary>
+        /// 根据条件删除
+        /// </summary>
+        /// <param name="delWhere">删除条件</param>
+        /// <returns></returns>
+        public int DelBy(Expression<Func<T, bool>> delWhere)
+        {
+            List<T> listDel = context.Set<T>().Where(delWhere).ToList();
+            listDel.ForEach(u =>
+            {
+                context.Set<T>().Attach(u);
+                context.Set<T>().Remove(u);
+            });
+            return context.SaveChanges();
+
+        }
+        #endregion
+
+        #region 3.0 修改实体
+        /// <summary>
+        /// 修改实体
+        /// </summary>
+        /// <param name="model">实体</param>
+        /// <param name="param">参数</param>
+        /// <returns></returns>
+        public int Modify(T model, params string[] param)
+        {
+            DbEntityEntry entry = context.Entry<T>(model);
+            entry.State = System.Data.EntityState.Unchanged;
+            foreach (string item in param)
+            {
+                entry.Property(item).IsModified = true;
+            }
+            return context.SaveChanges();
+        }
+        #endregion
+
+        #region 3.1 根据条件修改
+        /// <summary>
+        /// 条件修改
+        /// </summary>
+        /// <param name="model">实体</param>
+        /// <param name="whereLambda">条件</param>
+        /// <param name="modifiedProName">参数</param>
+        /// <returns></returns>
+        public int ModifyBy(T model, Expression<Func<T, bool>> whereLambda, params string[] modifiedProName)
+        {
+            List<T> listModifing = context.Set<T>().Where(whereLambda).ToList();
+            Type t = typeof(T);
+            List<PropertyInfo> proInfos = t.GetProperties(BindingFlags.Instance | BindingFlags.Public).ToList();
+            Dictionary<string, PropertyInfo> dictPros = new Dictionary<string, PropertyInfo>();
+            proInfos.ForEach(p =>
+            {
+                if (modifiedProName.Contains(p.Name))
+                {
+                    dictPros.Add(p.Name, p);
+                }
+            });
+
+            foreach (string proName in modifiedProName)
+            {
+                if (dictPros.ContainsKey(proName))
+                {
+                    PropertyInfo proInfo = dictPros[proName];
+                    object newValue = proInfo.GetValue(model, null);
+                    foreach (T item in listModifing)
+                    {
+                        proInfo.SetValue(item, newValue, null);
+                    }
+                }
+            }
+            return context.SaveChanges();
+        }
+        #endregion
+
+        #region 4.0 根据条件查询
+        /// <summary>
+        /// 根据条件查询
+        /// </summary>
+        /// <param name="whereLambda">查询条件</param>
+        /// <returns></returns>
+        public List<T> GetListBy(Expression<Func<T, bool>> whereLambda)
+        {
+            return context.Set<T>().Where(whereLambda).ToList();
+        }
+        #endregion
+
+        #region 4.1 根据条件查询 排序
+        /// <summary>
+        ///  根据条件查询 排序
+        /// </summary>
+        /// <typeparam name="TKey">排序属性</typeparam>
+        /// <param name="whereLambda">查询条件</param>
+        /// <param name="orderLambda">排序条件</param>
+        /// <returns></returns>
+        public List<T> GetListBy<TKey>(Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderLambda)
+        {
+            return context.Set<T>().Where(whereLambda).OrderBy(orderLambda).ToList();
+        }
+        #endregion
+
+        #region 4.2 根据条件查询 排序 分页
+
+        /// <summary>
+        /// 根据条件查询 排序 分页
+        /// </summary>
+        /// <typeparam name="TKey">排序属性</typeparam>
+        /// <param name="pageIndex">页码</param>
+        /// <param name="pageSize">每页数量</param>
+        /// <param name="wherelambda">查询条件</param>
+        /// <param name="orderLambda">排序条件</param>
+        /// <returns></returns>
+        public List<T> GetListBy<TKey>(int pageIndex, int pageSize, Expression<Func<T, bool>> whereLambda, Expression<Func<T, TKey>> orderLambda)
+        {
+            return context.Set<T>().Where(whereLambda).OrderBy(orderLambda).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+        }
+        #endregion
+    }
+}

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StuFinanced.Model" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="StuFinancedContext" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <EntitySet Name="SF_AD" EntityType="StuFinanced.Model.SF_AD" />
+    <EntitySet Name="SF_Download" EntityType="StuFinanced.Model.SF_Download" />
+    <EntitySet Name="SF_Notice" EntityType="StuFinanced.Model.SF_Notice" />
+    <EntitySet Name="SF_NoticeCategory" EntityType="StuFinanced.Model.SF_NoticeCategory" />
+    <EntitySet Name="SF_WB_LoginLog" EntityType="StuFinanced.Model.SF_WB_LoginLog" />
+    <EntitySet Name="SF_WB_OperateLog" EntityType="StuFinanced.Model.SF_WB_OperateLog" />
+    <EntitySet Name="SF_Admin" EntityType="StuFinanced.Model.SF_Admin" />
+  </EntityContainer>
+  <EntityType Name="SF_AD">
+    <Key>
+      <PropertyRef Name="AD_GUID" />
+    </Key>
+    <Property Name="AD_GUID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="AD_Title" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="AD_ImgUrl" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+    <Property Name="AD_SeatCode" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="AD_Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="SF_Download">
+    <Key>
+      <PropertyRef Name="D_GUID" />
+    </Key>
+    <Property Name="D_GUID" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="D_AdminGUID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="D_Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="D_Url" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+    <Property Name="D_Describe" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="D_Category" Type="Int32" />
+    <Property Name="D_Status" Type="Boolean" />
+    <Property Name="D_Time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SF_Notice">
+    <Key>
+      <PropertyRef Name="N_GUID" />
+    </Key>
+    <Property Name="N_GUID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="N_AdminGUID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="N_Category" Type="Int32" />
+    <Property Name="N_Title" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="N_Describe" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="N_Status" Type="Int32" />
+    <Property Name="N_LastTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SF_NoticeCategory">
+    <Key>
+      <PropertyRef Name="NC_ID" />
+    </Key>
+    <Property Name="NC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="NC_Name" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="NC_ParentID" Type="Int32" />
+    <Property Name="NC_Level" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SF_WB_LoginLog">
+    <Key>
+      <PropertyRef Name="LL_GUID" />
+    </Key>
+    <Property Name="LL_GUID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LL_Admin_GUID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LL_Describe" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="LL_Time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SF_WB_OperateLog">
+    <Key>
+      <PropertyRef Name="OL_GUID" />
+    </Key>
+    <Property Name="OL_GUID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="OL_Admin_GUID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="OL_Describe" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="OL_Time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SF_Admin">
+    <Key>
+      <PropertyRef Name="A_GUID" />
+    </Key>
+    <Property Type="String" Name="A_GUID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="A_NickName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="A_LoginPwd" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="A_RealName" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="A_Status" Nullable="false" />
+  </EntityType>
+</Schema>

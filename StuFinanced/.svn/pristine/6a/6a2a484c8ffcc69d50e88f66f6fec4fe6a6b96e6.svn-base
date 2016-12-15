@@ -1,0 +1,52 @@
+﻿using System;
+using System.Configuration;
+namespace StuFinanced.Common.ComFunction
+{
+    public class ConfigHelper
+    {
+        /// <summary>
+        /// 获取我惠云网APIURL
+        /// </summary>
+        /// <returns></returns>
+        public static string GetYWAPIURL()
+        {
+            return Convert.ToString(ConfigurationManager.ConnectionStrings["YWAPI_URL"]);
+        }
+
+        /// <summary>
+        /// SSOURL
+        /// </summary>
+        /// <returns></returns>
+        public static string GetSSOUrl()
+        {
+            return Convert.ToString(ConfigurationManager.ConnectionStrings["SSOUrl"]);
+        }
+        /// <summary>
+        /// 回调SSOURL
+        /// </summary>
+        /// <returns></returns>
+        public static string GetSSOActionUrl()
+        {
+            return Convert.ToString(ConfigurationManager.ConnectionStrings["SSOActionUrl"]);
+        }
+
+        /// <summary>
+        /// 网站域名
+        /// </summary>
+        /// <returns></returns>
+        public static string GetDomainName()
+        {
+            return Convert.ToString(ConfigurationManager.ConnectionStrings["DomainName"]);
+        }
+
+        /// <summary>
+        /// 网站首页
+        /// </summary>
+        /// <returns></returns>
+        public static string GetWebIndex()
+        {
+            return Convert.ToString(ConfigurationManager.ConnectionStrings["YWAPI_URL"]) + "/Home/Index";
+        }
+
+    }
+}

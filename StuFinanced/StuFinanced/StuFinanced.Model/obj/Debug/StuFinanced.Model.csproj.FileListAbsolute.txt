@@ -1,0 +1,6 @@
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.Model\bin\Debug\StuFinanced.Model.dll.config
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.Model\bin\Debug\StuFinanced.Model.dll
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.Model\bin\Debug\StuFinanced.Model.pdb
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.Model\bin\Debug\EntityFramework.dll
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.Model\obj\Debug\StuFinanced.Model.dll
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.Model\obj\Debug\StuFinanced.Model.pdb

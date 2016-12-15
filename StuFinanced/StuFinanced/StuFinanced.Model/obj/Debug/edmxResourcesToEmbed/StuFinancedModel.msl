@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StuFinancedModelStoreContainer" CdmEntityContainer="StuFinancedContext">
+    <EntitySetMapping Name="SF_AD">
+      <EntityTypeMapping TypeName="StuFinanced.Model.SF_AD">
+        <MappingFragment StoreEntitySet="SF_AD">
+          <ScalarProperty Name="AD_GUID" ColumnName="AD_GUID" />
+          <ScalarProperty Name="AD_Title" ColumnName="AD_Title" />
+          <ScalarProperty Name="AD_ImgUrl" ColumnName="AD_ImgUrl" />
+          <ScalarProperty Name="AD_SeatCode" ColumnName="AD_SeatCode" />
+          <ScalarProperty Name="AD_Status" ColumnName="AD_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SF_Download">
+      <EntityTypeMapping TypeName="StuFinanced.Model.SF_Download">
+        <MappingFragment StoreEntitySet="SF_Download">
+          <ScalarProperty Name="D_GUID" ColumnName="D_GUID" />
+          <ScalarProperty Name="D_AdminGUID" ColumnName="D_AdminGUID" />
+          <ScalarProperty Name="D_Name" ColumnName="D_Name" />
+          <ScalarProperty Name="D_Url" ColumnName="D_Url" />
+          <ScalarProperty Name="D_Describe" ColumnName="D_Describe" />
+          <ScalarProperty Name="D_Category" ColumnName="D_Category" />
+          <ScalarProperty Name="D_Status" ColumnName="D_Status" />
+          <ScalarProperty Name="D_Time" ColumnName="D_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SF_Notice">
+      <EntityTypeMapping TypeName="StuFinanced.Model.SF_Notice">
+        <MappingFragment StoreEntitySet="SF_Notice">
+          <ScalarProperty Name="N_GUID" ColumnName="N_GUID" />
+          <ScalarProperty Name="N_AdminGUID" ColumnName="N_AdminGUID" />
+          <ScalarProperty Name="N_Category" ColumnName="N_Category" />
+          <ScalarProperty Name="N_Title" ColumnName="N_Title" />
+          <ScalarProperty Name="N_Describe" ColumnName="N_Describe" />
+          <ScalarProperty Name="N_Status" ColumnName="N_Status" />
+          <ScalarProperty Name="N_LastTime" ColumnName="N_LastTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SF_NoticeCategory">
+      <EntityTypeMapping TypeName="StuFinanced.Model.SF_NoticeCategory">
+        <MappingFragment StoreEntitySet="SF_NoticeCategory">
+          <ScalarProperty Name="NC_ID" ColumnName="NC_ID" />
+          <ScalarProperty Name="NC_Name" ColumnName="NC_Name" />
+          <ScalarProperty Name="NC_ParentID" ColumnName="NC_ParentID" />
+          <ScalarProperty Name="NC_Level" ColumnName="NC_Level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SF_WB_LoginLog">
+      <EntityTypeMapping TypeName="StuFinanced.Model.SF_WB_LoginLog">
+        <MappingFragment StoreEntitySet="SF_WB_LoginLog">
+          <ScalarProperty Name="LL_GUID" ColumnName="LL_GUID" />
+          <ScalarProperty Name="LL_Admin_GUID" ColumnName="LL_Admin_GUID" />
+          <ScalarProperty Name="LL_Describe" ColumnName="LL_Describe" />
+          <ScalarProperty Name="LL_Time" ColumnName="LL_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SF_WB_OperateLog">
+      <EntityTypeMapping TypeName="StuFinanced.Model.SF_WB_OperateLog">
+        <MappingFragment StoreEntitySet="SF_WB_OperateLog">
+          <ScalarProperty Name="OL_GUID" ColumnName="OL_GUID" />
+          <ScalarProperty Name="OL_Admin_GUID" ColumnName="OL_Admin_GUID" />
+          <ScalarProperty Name="OL_Describe" ColumnName="OL_Describe" />
+          <ScalarProperty Name="OL_Time" ColumnName="OL_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SF_Admin">
+      <EntityTypeMapping TypeName="StuFinanced.Model.SF_Admin">
+        <MappingFragment StoreEntitySet="SF_Admin">
+          <ScalarProperty Name="A_Status" ColumnName="A_Status" />
+          <ScalarProperty Name="A_RealName" ColumnName="A_RealName" />
+          <ScalarProperty Name="A_LoginPwd" ColumnName="A_LoginPwd" />
+          <ScalarProperty Name="A_NickName" ColumnName="A_NickName" />
+          <ScalarProperty Name="A_GUID" ColumnName="A_GUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

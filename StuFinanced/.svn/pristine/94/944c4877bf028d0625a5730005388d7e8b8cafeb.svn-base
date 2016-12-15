@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+
+namespace StuFinanced.DBUtility
+{
+  public  class CommandInfo
+    {
+
+        #region 属性
+        private string _commandText;
+        private SqlParameter[] _parameters;
+
+        /// <summary>
+        /// T-SQL语句
+        /// </summary>
+        public string CommandText
+        {
+            get
+            {
+                return _commandText;
+            }
+            set
+            {
+                _commandText = value;
+            }
+        }
+        /// <summary>
+        /// SqlParameter参数数组
+        /// </summary>
+        public SqlParameter[] Parameters
+        {
+            get
+            {
+                return _parameters;
+            }
+            set
+            {
+                _parameters = value;
+            }
+        }
+        #endregion 属性End
+
+        public CommandInfo()
+        {
+
+        }
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="strSQL">T-SQL语句</param>
+        /// <param name="parameters">长度可变参数数组，可为空</param>
+        public CommandInfo(string strSQL, params SqlParameter[] parameters)
+        {
+            CommandText = strSQL;  
+            Parameters = parameters;
+        }
+    }
+}

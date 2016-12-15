@@ -1,0 +1,11 @@
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DAL\bin\Debug\StuFinanced.DAL.dll
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DAL\bin\Debug\StuFinanced.DAL.pdb
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DAL\bin\Debug\StuFinanced.Model.dll
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DAL\bin\Debug\EntityFramework.dll
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DAL\bin\Debug\StuFinanced.Model.pdb
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DAL\obj\Debug\StuFinanced.DAL.csprojResolveAssemblyReference.cache
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DAL\obj\Debug\StuFinanced.DAL.dll
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DAL\obj\Debug\StuFinanced.DAL.pdb
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DAL\bin\Debug\StuFinanced.DAL.dll.config
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DAL\bin\Debug\EntityFramework.xml
+C:\Users\lostsea\Desktop\StuFinanced\StuFinanced\StuFinanced.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll

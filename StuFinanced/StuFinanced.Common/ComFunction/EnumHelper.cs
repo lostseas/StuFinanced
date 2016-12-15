@@ -1,0 +1,69 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StuFinanced.Common.ComFunction
+{
+    /// <summary>
+    /// 枚举操作方法类
+    /// </summary>
+    public class EnumHelper
+    {
+        #region 枚举基本操作方法
+        /// <summary>
+        /// 获取枚举项的Text值
+        /// </summary>
+        /// <param name="enumItem">枚举项</param>
+        /// <returns>字符串</returns>
+        public static string GetEnumText(Enum enumItem)
+        {
+            return enumItem.ToString();
+        }
+
+        /// <summary>
+        /// 获取枚举项的Text值
+        /// </summary>
+        /// <param name="enumType">枚举的类型，参数格式是“typeof(枚举类)”</param>
+        /// <param name="enumValue">枚举的Value值</param>
+        /// <returns>枚举项的Text值</returns>
+        public static string GetEnumText(Type enumType, int enumValue)
+        {
+            int value = Convert.ToInt32(enumValue);
+ 
+            return Enum.GetName(enumType, value);
+        }
+
+        /// <summary>
+        /// 获取枚举项的Value值
+        /// </summary>
+        /// <param name="enumItem">枚举项</param>
+        /// <returns>整型数字</returns>
+        public static int GetEnumValue(Enum enumItem)
+        {
+            return enumItem.GetHashCode();
+        }
+
+        /// <summary>
+        /// 将枚举转化成 Dictionary<int, string>
+        /// </summary>
+        /// <param name="enumType">枚举的类型，参数格式是“typeof(枚举类)”</param>
+        /// <returns>Dictionary<int, string></returns>
+        public static Dictionary<int, string> SetEnumToDictionary(Type enumType)
+        {
+            Dictionary<int, string> Dict = new Dictionary<int, string>();
+            string[] names = Enum.GetNames(enumType);
+            Array values = Enum.GetValues(enumType);
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                Dict.Add((int)values.GetValue(i), names[i]);
+            }
+            return Dict;
+        }
+
+        #endregion
+    }
+}
+

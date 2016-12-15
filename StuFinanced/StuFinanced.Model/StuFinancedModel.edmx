@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StuFinanced.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SF_AD">
+          <Key>
+            <PropertyRef Name="AD_GUID" />
+          </Key>
+          <Property Name="AD_GUID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AD_Title" Type="varchar" MaxLength="50" />
+          <Property Name="AD_ImgUrl" Type="varchar" MaxLength="128" />
+          <Property Name="AD_SeatCode" Type="varchar" MaxLength="32" />
+          <Property Name="AD_Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="SF_Admin">
+          <Key>
+            <PropertyRef Name="A_GUID" />
+          </Key>
+          <Property Name="A_GUID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="A_NickName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="A_LoginPwd" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="A_RealName" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="A_Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SF_Download">
+          <Key>
+            <PropertyRef Name="D_GUID" />
+          </Key>
+          <Property Name="D_GUID" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="D_AdminGUID" Type="varchar" MaxLength="50" />
+          <Property Name="D_Name" Type="varchar" MaxLength="50" />
+          <Property Name="D_Url" Type="varchar" MaxLength="128" />
+          <Property Name="D_Describe" Type="varchar" MaxLength="200" />
+          <Property Name="D_Category" Type="int" />
+          <Property Name="D_Status" Type="bit" />
+          <Property Name="D_Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SF_Notice">
+          <Key>
+            <PropertyRef Name="N_GUID" />
+          </Key>
+          <Property Name="N_GUID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="N_AdminGUID" Type="varchar" MaxLength="50" />
+          <Property Name="N_Category" Type="int" />
+          <Property Name="N_Title" Type="varchar" MaxLength="50" />
+          <Property Name="N_Describe" Type="varchar(max)" />
+          <Property Name="N_Status" Type="int" />
+          <Property Name="N_LastTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SF_NoticeCategory">
+          <Key>
+            <PropertyRef Name="NC_ID" />
+          </Key>
+          <Property Name="NC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NC_Name" Type="varchar" MaxLength="32" />
+          <Property Name="NC_ParentID" Type="int" />
+          <Property Name="NC_Level" Type="int" />
+        </EntityType>
+        <EntityType Name="SF_WB_LoginLog">
+          <Key>
+            <PropertyRef Name="LL_GUID" />
+          </Key>
+          <Property Name="LL_GUID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LL_Admin_GUID" Type="varchar" MaxLength="50" />
+          <Property Name="LL_Describe" Type="varchar" MaxLength="200" />
+          <Property Name="LL_Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SF_WB_OperateLog">
+          <Key>
+            <PropertyRef Name="OL_GUID" />
+          </Key>
+          <Property Name="OL_GUID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OL_Admin_GUID" Type="varchar" MaxLength="50" />
+          <Property Name="OL_Describe" Type="varchar" MaxLength="200" />
+          <Property Name="OL_Time" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="StuFinancedModelStoreContainer">
+          <EntitySet Name="SF_AD" EntityType="Self.SF_AD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SF_Admin" EntityType="Self.SF_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SF_Download" EntityType="Self.SF_Download" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SF_Notice" EntityType="Self.SF_Notice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SF_NoticeCategory" EntityType="Self.SF_NoticeCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SF_WB_LoginLog" EntityType="Self.SF_WB_LoginLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SF_WB_OperateLog" EntityType="Self.SF_WB_OperateLog" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StuFinanced.Model" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="StuFinancedContext" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="SF_AD" EntityType="StuFinanced.Model.SF_AD" />
+          <EntitySet Name="SF_Download" EntityType="StuFinanced.Model.SF_Download" />
+          <EntitySet Name="SF_Notice" EntityType="StuFinanced.Model.SF_Notice" />
+          <EntitySet Name="SF_NoticeCategory" EntityType="StuFinanced.Model.SF_NoticeCategory" />
+          <EntitySet Name="SF_WB_LoginLog" EntityType="StuFinanced.Model.SF_WB_LoginLog" />
+          <EntitySet Name="SF_WB_OperateLog" EntityType="StuFinanced.Model.SF_WB_OperateLog" />
+          <EntitySet Name="SF_Admin" EntityType="StuFinanced.Model.SF_Admin" />
+        </EntityContainer>
+        <EntityType Name="SF_AD">
+          <Key>
+            <PropertyRef Name="AD_GUID" />
+          </Key>
+          <Property Name="AD_GUID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="AD_Title" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="AD_ImgUrl" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="AD_SeatCode" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="AD_Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SF_Download">
+          <Key>
+            <PropertyRef Name="D_GUID" />
+          </Key>
+          <Property Name="D_GUID" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="D_AdminGUID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="D_Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="D_Url" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="D_Describe" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="D_Category" Type="Int32" />
+          <Property Name="D_Status" Type="Boolean" />
+          <Property Name="D_Time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SF_Notice">
+          <Key>
+            <PropertyRef Name="N_GUID" />
+          </Key>
+          <Property Name="N_GUID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="N_AdminGUID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="N_Category" Type="Int32" />
+          <Property Name="N_Title" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="N_Describe" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="N_Status" Type="Int32" />
+          <Property Name="N_LastTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SF_NoticeCategory">
+          <Key>
+            <PropertyRef Name="NC_ID" />
+          </Key>
+          <Property Name="NC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="NC_Name" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="NC_ParentID" Type="Int32" />
+          <Property Name="NC_Level" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SF_WB_LoginLog">
+          <Key>
+            <PropertyRef Name="LL_GUID" />
+          </Key>
+          <Property Name="LL_GUID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LL_Admin_GUID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LL_Describe" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="LL_Time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SF_WB_OperateLog">
+          <Key>
+            <PropertyRef Name="OL_GUID" />
+          </Key>
+          <Property Name="OL_GUID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="OL_Admin_GUID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="OL_Describe" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="OL_Time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SF_Admin">
+          <Key>
+            <PropertyRef Name="A_GUID" />
+          </Key>
+          <Property Type="String" Name="A_GUID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="A_NickName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="A_LoginPwd" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="A_RealName" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="A_Status" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StuFinancedModelStoreContainer" CdmEntityContainer="StuFinancedContext">
+          <EntitySetMapping Name="SF_AD">
+            <EntityTypeMapping TypeName="StuFinanced.Model.SF_AD">
+              <MappingFragment StoreEntitySet="SF_AD">
+                <ScalarProperty Name="AD_GUID" ColumnName="AD_GUID" />
+                <ScalarProperty Name="AD_Title" ColumnName="AD_Title" />
+                <ScalarProperty Name="AD_ImgUrl" ColumnName="AD_ImgUrl" />
+                <ScalarProperty Name="AD_SeatCode" ColumnName="AD_SeatCode" />
+                <ScalarProperty Name="AD_Status" ColumnName="AD_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SF_Download">
+            <EntityTypeMapping TypeName="StuFinanced.Model.SF_Download">
+              <MappingFragment StoreEntitySet="SF_Download">
+                <ScalarProperty Name="D_GUID" ColumnName="D_GUID" />
+                <ScalarProperty Name="D_AdminGUID" ColumnName="D_AdminGUID" />
+                <ScalarProperty Name="D_Name" ColumnName="D_Name" />
+                <ScalarProperty Name="D_Url" ColumnName="D_Url" />
+                <ScalarProperty Name="D_Describe" ColumnName="D_Describe" />
+                <ScalarProperty Name="D_Category" ColumnName="D_Category" />
+                <ScalarProperty Name="D_Status" ColumnName="D_Status" />
+                <ScalarProperty Name="D_Time" ColumnName="D_Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SF_Notice">
+            <EntityTypeMapping TypeName="StuFinanced.Model.SF_Notice">
+              <MappingFragment StoreEntitySet="SF_Notice">
+                <ScalarProperty Name="N_GUID" ColumnName="N_GUID" />
+                <ScalarProperty Name="N_AdminGUID" ColumnName="N_AdminGUID" />
+                <ScalarProperty Name="N_Category" ColumnName="N_Category" />
+                <ScalarProperty Name="N_Title" ColumnName="N_Title" />
+                <ScalarProperty Name="N_Describe" ColumnName="N_Describe" />
+                <ScalarProperty Name="N_Status" ColumnName="N_Status" />
+                <ScalarProperty Name="N_LastTime" ColumnName="N_LastTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SF_NoticeCategory">
+            <EntityTypeMapping TypeName="StuFinanced.Model.SF_NoticeCategory">
+              <MappingFragment StoreEntitySet="SF_NoticeCategory">
+                <ScalarProperty Name="NC_ID" ColumnName="NC_ID" />
+                <ScalarProperty Name="NC_Name" ColumnName="NC_Name" />
+                <ScalarProperty Name="NC_ParentID" ColumnName="NC_ParentID" />
+                <ScalarProperty Name="NC_Level" ColumnName="NC_Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SF_WB_LoginLog">
+            <EntityTypeMapping TypeName="StuFinanced.Model.SF_WB_LoginLog">
+              <MappingFragment StoreEntitySet="SF_WB_LoginLog">
+                <ScalarProperty Name="LL_GUID" ColumnName="LL_GUID" />
+                <ScalarProperty Name="LL_Admin_GUID" ColumnName="LL_Admin_GUID" />
+                <ScalarProperty Name="LL_Describe" ColumnName="LL_Describe" />
+                <ScalarProperty Name="LL_Time" ColumnName="LL_Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SF_WB_OperateLog">
+            <EntityTypeMapping TypeName="StuFinanced.Model.SF_WB_OperateLog">
+              <MappingFragment StoreEntitySet="SF_WB_OperateLog">
+                <ScalarProperty Name="OL_GUID" ColumnName="OL_GUID" />
+                <ScalarProperty Name="OL_Admin_GUID" ColumnName="OL_Admin_GUID" />
+                <ScalarProperty Name="OL_Describe" ColumnName="OL_Describe" />
+                <ScalarProperty Name="OL_Time" ColumnName="OL_Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SF_Admin">
+            <EntityTypeMapping TypeName="StuFinanced.Model.SF_Admin">
+              <MappingFragment StoreEntitySet="SF_Admin">
+                <ScalarProperty Name="A_Status" ColumnName="A_Status" />
+                <ScalarProperty Name="A_RealName" ColumnName="A_RealName" />
+                <ScalarProperty Name="A_LoginPwd" ColumnName="A_LoginPwd" />
+                <ScalarProperty Name="A_NickName" ColumnName="A_NickName" />
+                <ScalarProperty Name="A_GUID" ColumnName="A_GUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="True" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams />
+  </edmx:Designer>
+</edmx:Edmx>

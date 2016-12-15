@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5c29fee3fbb947b88176ae1e9b2c29b4" Name="关系图1">
+        <EntityTypeShape EntityType="StuFinanced.Model.SF_AD" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StuFinanced.Model.SF_Download" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StuFinanced.Model.SF_Notice" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StuFinanced.Model.SF_NoticeCategory" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StuFinanced.Model.SF_WB_LoginLog" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StuFinanced.Model.SF_WB_OperateLog" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StuFinanced.Model.SF_Admin" Width="1.5" PointX="10.357891005630554" PointY="23.583643521919679" />
+        <EntityTypeShape EntityType="StuFinanced.Model.sysdiagrams" Width="1.5" PointX="1.8028322001001016" PointY="20.738516593695859" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
